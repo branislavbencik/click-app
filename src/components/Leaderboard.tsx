@@ -1,57 +1,19 @@
 import React, { Component } from "react";
 import Heading from "./Heading";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import Table from "./Table";
+import { connect } from "react-redux";
+import * as actionCreators from "../actions/actions";
 
-export default class Home extends Component<{}, IState> {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      currentTeam: "",
-      teams: []
-    };
-  }
-
+class Leaderboard extends Component<any, any> {
   componentDidMount() {
-    axios.get("http://klikuj.herokuapp.com/api/v1/leaderboard").then(res => {
-      console.log(res);
-      this.setState({
-        teams: res.data
-      });
-    });
+    this.props.fetchTeams();
   }
 
-  public handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+  public handleSubmit = (e: any): void => {
     e.preventDefault();
-    this.setState({
-      currentTeam: "",
-      teams: [
-        ...this.state.teams,
-        {
-          order: 1,
-          team: this.state.currentTeam,
-          clicks: 0
-        }
-      ]
-    });
-  };
-
-  public handleInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    this.setState({
-      currentTeam: e.target.value
-    });
-  };
-
-  public renderTeams = (): JSX.Element[] => {
-    return this.state.teams.map((teamObject: ITeam, index: number) => {
-      return (
-        <tr key={index}>
-          <td>{teamObject.order}</td>
-          <td>{teamObject.team}</td>
-          <td>{teamObject.clicks}</td>
-        </tr>
-      );
-    });
+    this.props.addTeam(e.target[0].value);
+    this.props.history.push("/" + e.target[0].value);
   };
 
   public render(): JSX.Element {
@@ -61,38 +23,21 @@ export default class Home extends Component<{}, IState> {
         <div className="MainContainer">
           <div className="FlexWrapper">
             <form className="Form" onSubmit={this.handleSubmit}>
-              <p>Enter Your Team name:</p>
-              <input
-                className="FormInput"
-                type="text"
-                placeholder="Your mom"
-                value={this.state.currentTeam}
-                onChange={this.handleInput}
-              />
-            </form>
-            <Link to={"/" + this.state.currentTeam}>
+              <label>Enter Your Team name:</label>
+              <input className="FormInput" type="text" placeholder="Your mom" />
               <button className="ClickButton" type="submit">
                 Click!
               </button>
-            </Link>
+            </form>
           </div>
-          <table className="Table">
-            <thead>
-              <tr>
-                <th />
-                <th>Team</th>
-                <th>Clicks</th>
-              </tr>
-            </thead>
-            <tbody>{this.renderTeams()}</tbody>
-          </table>
+          <Table />
         </div>
       </div>
     );
   }
 }
 
-interface IState {
+interface IProps {
   currentTeam: string;
   teams: ITeam[];
 }
@@ -102,3 +47,12 @@ interface ITeam {
   team: string;
   clicks: number;
 }
+
+const mapStateToProps = (state: any) => {
+  return state;
+};
+
+export default connect(
+  mapStateToProps,
+  actionCreators
+)(Leaderboard);

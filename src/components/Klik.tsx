@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Heading from "./Heading";
 import axios from "axios";
+import Table from "./Table";
 
-export default class Klik extends Component<any, IState> {
+class Klik extends Component<any, any> {
+  /*
   constructor(props: {}) {
     super(props);
     this.state = {
@@ -12,32 +14,39 @@ export default class Klik extends Component<any, IState> {
   }
 
   public post = (): void => {
-    axios.post("http://klikuj.herokuapp.com/api/v1/klik", {
-      team: this.state.team,
-      session: this.state.session
-    });
+    axios
+      .post("http://klikuj.herokuapp.com/api/v1/klik", {
+        team: this.state.team,
+        session: this.state.session
+      })
+      .then(res => {
+        console.log(res);
+      });
   };
 
-  componentDidMount() {
-    let name = this.props.match.params.name;
-    let sessionString = Math.random().toString(36);
-    this.setState({
-      team: name,
-      session: sessionString
-    });
-    this.post();
-  }
+  */
 
   render() {
+    let name: string = this.props.match.params.name;
+    let sessionString: string = Math.random().toString(36);
     return (
-      <div className="container">
-        <p>{this.state.session}</p>
+      <div className="Klik">
+        <Heading />
+        <div className="MainContainer">
+          <div className="FlexWrapper">
+            <p>{name}</p>
+            <p>{sessionString}</p>
+            <form className="Form">
+              <button className="ClickButton" type="submit">
+                Click!
+              </button>
+            </form>
+          </div>
+          <Table />
+        </div>
       </div>
     );
   }
 }
 
-interface IState {
-  team: string;
-  session: string;
-}
+export default Klik;
