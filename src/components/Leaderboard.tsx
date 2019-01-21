@@ -4,6 +4,7 @@ import axios from "axios";
 import Table from "./Table";
 import { connect } from "react-redux";
 import * as actionCreators from "../actions/actions";
+import { TableFooter, Footer } from "./Footer";
 
 class Leaderboard extends Component<any, any> {
   componentDidMount() {
@@ -21,17 +22,21 @@ class Leaderboard extends Component<any, any> {
       <div className="LeaderBoard">
         <Heading />
         <div className="MainContainer">
-          <div className="FlexWrapper">
-            <form className="Form" onSubmit={this.handleSubmit}>
-              <label>Enter Your Team name:</label>
-              <input className="FormInput" type="text" placeholder="Your mom" />
-              <button className="ClickButton" type="submit">
-                Click!
-              </button>
-            </form>
-          </div>
+          <form className="FormWrapper" onSubmit={this.handleSubmit}>
+            <span className="LabelInputWrapper">
+              <label>
+                <i>Enter Your Team name:</i>
+              </label>
+              <input type="text" placeholder="Your mom" />
+            </span>
+            <button className="PlayButton" type="submit">
+              Click!
+            </button>
+          </form>
           <Table />
+          <TableFooter />
         </div>
+        <Footer />
       </div>
     );
   }

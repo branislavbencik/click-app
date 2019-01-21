@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Heading from "./Heading";
 import axios from "axios";
 import Table from "./Table";
+import { TableFooter, Footer } from "./Footer";
 
 class Klik extends Component<any, any> {
   /*
@@ -34,16 +35,14 @@ class Klik extends Component<any, any> {
         <Heading />
         <div className="MainContainer">
           <div className="FlexWrapper">
-            <p>{name}</p>
-            <p>{sessionString}</p>
-            <form className="Form">
-              <button className="ClickButton" type="submit">
-                Click!
-              </button>
-            </form>
+            <button className="ClickButton" type="submit">
+              Click!
+            </button>
           </div>
           <Table />
+          <TableFooter />
         </div>
+        <Footer />
       </div>
     );
   }

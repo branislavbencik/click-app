@@ -4,21 +4,23 @@ import * as actionCreators from "../actions/actions";
 
 class Table extends Component<any, any> {
   public renderTable = (): JSX.Element[] => {
-    return this.props.teams.map((teamObject: ITeam, index: number) => {
-      return (
-        <tr key={index}>
-          <td>{teamObject.order}</td>
-          <td>{teamObject.team}</td>
-          <td>{teamObject.clicks}</td>
-        </tr>
-      );
-    });
+    return this.props.teams
+      .slice(0, 8)
+      .map((teamObject: ITeam, index: number) => {
+        return (
+          <tr key={index}>
+            <td>{teamObject.order}</td>
+            <td>{teamObject.team}</td>
+            <td>{teamObject.clicks}</td>
+          </tr>
+        );
+      });
   };
 
   render() {
     return (
       <div>
-        <table className="Table">
+        <table cellSpacing="0" cellPadding="0" className="Table">
           <thead>
             <tr>
               <th />

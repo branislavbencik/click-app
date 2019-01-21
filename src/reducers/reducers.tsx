@@ -1,10 +1,6 @@
 const initState = {
   currentTeam: "",
-  teams: [
-    { order: "1", team: "Applifting", clicks: 211 },
-    { order: "2", team: "Dominika", clicks: 192 },
-    { order: "3", team: "Branislav", clicks: 77 }
-  ]
+  teams: []
 };
 
 export const reducer = (state = initState, action: any) => {

@@ -2,6 +2,20 @@ html {
   background-color: #f1f1f1;
 }
 
+.HeadingText,
+.ClickButton,
+.PlayButton,
+.Table {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+.HeadingText,
+.PlayButton,
+.ClickButton {
+  background-color: #4990e2;
+}
+
 .Quote {
   margin: 0 auto;
   width: 60%;
@@ -25,8 +39,6 @@ html {
 .HeadingText {
   color: white;
   font-size: 25px;
-  font-family: "Raleway", sans-serif;
-  background-color: #4798e5;
   text-align: center;
   padding: 10px;
 }
@@ -34,39 +46,94 @@ html {
 .MainContainer {
   width: 50%;
   margin: 0 auto;
-  border: 5px solid #4798e5;
+  border: 5px solid #4990e2;
   border-radius: 10px;
   background-color: white;
 }
 
-.FlexWrapper {
-  padding: 20px;
+label,
+input {
+  display: block;
+  width: 100%;
+}
+
+.FormWrapper {
+  padding: 20px 0px 40px 0px;
+  font-size: 20px;
   display: flex;
   justify-content: space-around;
 }
 
-.Form {
-  font-size: 20px;
+.LabelInputWrapper {
+  padding: 25px;
+  width: 100%;
 }
 
-.FormInput {
-  padding: 10px;
-  width: 100%;
+input {
+  margin: 10px 0px 0px 0px;
+  padding: 5px 8px;
+  line-height: 30px;
+  border-radius: 10px;
+  border: solid 0.5px grey;
   font-size: 15px;
-  border: 1px solid grey;
-  border-radius: 5px;
+}
+
+::placeholder {
+  opacity: 0.5;
+}
+
+.PlayButton,
+.ClickButton {
+  color: white;
+  font-size: 40px;
+  border-radius: 10px;
+}
+
+.PlayButton {
+  float: right;
+  margin: 0px 25px 25px 10px;
+  padding: 10px 75px;
 }
 
 .ClickButton {
-  padding: 25px 75px;
-  background-color: #4798e5;
-  color: white;
-  font-size: 40px;
-  font-family: "Raleway", sans-serif;
-  border-radius: 10px;
+  display: block;
+  width: 90%;
+  padding: 30px;
+  margin: 25px auto;
 }
 
 .Table {
   width: 100%;
+  text-align: left;
+  border: none;
+  font-size: 20px;
+  line-height: 50px;
+}
+
+tr:nth-child(even) {
+  background-color: #ecf3fd;
+}
+
+tr:nth-child(odd) {
+  background-color: #dce9f9;
+}
+
+thead th {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.TableFooter,
+.Footer {
+  font-size: 18px;
+  font-style: italic;
   text-align: center;
+}
+
+.TableFooter {
+  padding: 35px;
+}
+
+.Footer {
+  padding: 50px 0px 20px 0px;
 }
