@@ -1,21 +1,23 @@
 import React, { Component } from "react";
 import Heading from "./Heading";
-import axios from "axios";
 import Table from "./Table";
 import { connect } from "react-redux";
 import * as actionCreators from "../actions/actions";
 import { TableFooter, Footer } from "./Footer";
 
 class Leaderboard extends Component<any, any> {
+  public handleSubmit = (e: any): void => {
+    e.preventDefault();
+    let team: string = e.target[0].value;
+    let sessionString: string = Math.random().toString(36);
+    this.props.addSession({ team, sessionString });
+    this.props.addTeam(team);
+    this.props.history.push("/" + team);
+  };
+
   componentDidMount() {
     this.props.fetchTeams();
   }
-
-  public handleSubmit = (e: any): void => {
-    e.preventDefault();
-    this.props.addTeam(e.target[0].value);
-    this.props.history.push("/" + e.target[0].value);
-  };
 
   public render(): JSX.Element {
     return (
@@ -40,11 +42,6 @@ class Leaderboard extends Component<any, any> {
       </div>
     );
   }
-}
-
-interface IProps {
-  currentTeam: string;
-  teams: ITeam[];
 }
 
 interface ITeam {

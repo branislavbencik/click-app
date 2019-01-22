@@ -1,35 +1,17 @@
 import React, { Component } from "react";
 import Heading from "./Heading";
-import axios from "axios";
 import Table from "./Table";
 import { TableFooter, Footer } from "./Footer";
+import * as actionCreators from "../actions/actions";
+import { connect } from "react-redux";
 
 class Klik extends Component<any, any> {
-  /*
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      team: "",
-      session: ""
-    };
+  componentDidMount() {
+    //this.props.postTeam();
+    //this.props.addSession();
   }
 
-  public post = (): void => {
-    axios
-      .post("http://klikuj.herokuapp.com/api/v1/klik", {
-        team: this.state.team,
-        session: this.state.session
-      })
-      .then(res => {
-        console.log(res);
-      });
-  };
-
-  */
-
   render() {
-    let name: string = this.props.match.params.name;
-    let sessionString: string = Math.random().toString(36);
     return (
       <div className="Klik">
         <Heading />
@@ -48,4 +30,20 @@ class Klik extends Component<any, any> {
   }
 }
 
-export default Klik;
+const mapStateToProps = (state: any) => {
+  return state;
+};
+/*
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    onAddTodo: todo => {
+      dispatch(addTodo(toto));
+    }
+  };
+};
+*/
+
+export default connect(
+  mapStateToProps,
+  actionCreators
+)(Klik);
