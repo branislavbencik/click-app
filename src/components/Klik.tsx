@@ -4,12 +4,15 @@ import Table from "./Table";
 import { TableFooter, Footer } from "./Footer";
 import * as actionCreators from "../actions/actions";
 import { connect } from "react-redux";
+import Clicks from "./Clicks";
 
 class Klik extends Component<any, any> {
-  componentDidMount() {
-    //this.props.postTeam();
-    //this.props.addSession();
-  }
+  public counter = () => {
+    let currentTeam = this.props.sessions[this.props.sessions.length - 1].team;
+    let currentSession = this.props.sessions[this.props.sessions.length - 1]
+      .session;
+    this.props.recordClick(currentTeam, currentSession);
+  };
 
   render() {
     return (
@@ -17,9 +20,14 @@ class Klik extends Component<any, any> {
         <Heading />
         <div className="MainContainer">
           <div className="FlexWrapper">
-            <button className="ClickButton" type="submit">
+            <button
+              className="ClickButton"
+              type="submit"
+              onClick={this.counter}
+            >
               Click!
             </button>
+            <Clicks />
           </div>
           <Table />
           <TableFooter />
@@ -33,15 +41,6 @@ class Klik extends Component<any, any> {
 const mapStateToProps = (state: any) => {
   return state;
 };
-/*
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    onAddTodo: todo => {
-      dispatch(addTodo(toto));
-    }
-  };
-};
-*/
 
 export default connect(
   mapStateToProps,

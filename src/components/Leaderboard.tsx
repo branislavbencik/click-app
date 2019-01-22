@@ -9,8 +9,8 @@ class Leaderboard extends Component<any, any> {
   public handleSubmit = (e: any): void => {
     e.preventDefault();
     let team: string = e.target[0].value;
-    let sessionString: string = Math.random().toString(36);
-    this.props.addSession({ team, sessionString });
+    let session: string = Math.random().toString(36);
+    this.props.addSession({ team, session });
     this.props.addTeam(team);
     this.props.history.push("/" + team);
   };

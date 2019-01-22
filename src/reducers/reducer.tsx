@@ -11,7 +11,9 @@ const initState = {
       team: "",
       string: ""
     }
-  ]
+  ],
+  your_clicks: undefined,
+  team_clicks: undefined
 };
 
 export const reducer = (state = initState, action: any) => {
@@ -25,32 +27,38 @@ export const reducer = (state = initState, action: any) => {
           clicks: null
         }
       ],
-      sessions: [...state.sessions]
+      sessions: [...state.sessions],
+      your_clicks: state.your_clicks,
+      team_clicks: state.team_clicks
     };
   }
 
   if (action.type == "ADD_SESSION") {
     return {
       teams: [...state.teams],
-      sessions: [...state.sessions, action.session]
+      sessions: [...state.sessions, action.session],
+      your_clicks: state.your_clicks,
+      team_clicks: state.team_clicks
     };
   }
 
   if (action.type === "GET_TEAMS") {
     return {
       teams: action.teams,
-      sessions: [...state.sessions]
+      sessions: [...state.sessions],
+      your_clicks: state.your_clicks,
+      team_clicks: state.team_clicks
     };
   }
-  /*
+
   if (action.type == "POST_TEAM") {
     return {
-      teams: action.teams
-      your_clicks: action.your_clicks,
-      team_clicks: action.team_clicks
+      teams: [...state.teams],
+      sessions: [...state.sessions],
+      your_clicks: action.clicks.your_clicks,
+      team_clicks: action.clicks.team_clicks
     };
   }
-  */
 
   return state;
 };

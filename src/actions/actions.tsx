@@ -21,10 +21,13 @@ export const setTeamsDetails = (teams: any) => {
   };
 };
 
-export const postTeamSuccess = (team: []) => {
+export const recordClickDetails = (clicks: any) => {
   return {
     type: "POST_TEAM",
-    team
+    clicks: {
+      your_clicks: clicks.your_clicks,
+      team_clicks: clicks.team_clicks
+    }
   };
 };
 
@@ -38,15 +41,15 @@ export const fetchTeams = () => {
   };
 };
 
-export const postTeam = (name: string, session: string) => {
+export const recordClick = (team: string, session: string) => {
   return (dispatch: any) => {
     return axios
-      .post(`https://jsonplaceholder.typicode.com/todos`, {
-        name,
+      .post("http://klikuj.herokuapp.com/api/v1/klik", {
+        team,
         session
       })
       .then(res => {
-        dispatch(postTeamSuccess(res.data));
+        dispatch(recordClickDetails(res.data));
       })
       .catch(err => {
         console.log("fail");

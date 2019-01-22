@@ -4,7 +4,6 @@ import * as actionCreators from "../actions/actions";
 
 class Table extends Component<any, any> {
   public renderTable = (): JSX.Element[] => {
-    //this.checkRanking();
     return this.props.teams
       .slice(0, 8)
       .map((teamObject: ITeam, index: number) => {
