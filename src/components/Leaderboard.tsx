@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import * as actionCreators from "../actions/actions";
 import { TableFooter, Footer } from "./Footer";
 
-class Leaderboard extends Component<any, any> {
+class Leaderboard extends Component<any, {}> {
   public handleSubmit = (e: any): void => {
     e.preventDefault();
     let team: string = e.target[0].value;
@@ -43,12 +43,6 @@ class Leaderboard extends Component<any, any> {
       </div>
     );
   }
-}
-
-interface ITeam {
-  order: number;
-  team: string;
-  clicks: number;
 }
 
 const mapStateToProps = (state: any) => {

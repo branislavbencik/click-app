@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
-class KlikHeading extends Component<any, any> {
+class KlikHeading extends Component<any, {}> {
   render() {
     const { sessions } = this.props;
     let currentTeam = sessions[sessions.length - 1].team;
@@ -15,8 +14,7 @@ class KlikHeading extends Component<any, any> {
           <p>
             Too lazy to click? Let your pals click for you:{" "}
             <span className="InviteFriendsLink">
-              stfuandclick.com/
-              {currentTeam}
+              {window.location.href + currentTeam}
             </span>
           </p>
         </div>

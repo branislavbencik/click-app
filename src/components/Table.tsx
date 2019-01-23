@@ -5,7 +5,7 @@ import * as actionCreators from "../actions/actions";
 class Table extends Component<any, any> {
   public renderTable = (): JSX.Element[] => {
     return this.props.teams
-      .slice(0, 8)
+      .slice(0, 10)
       .map((teamObject: ITeam, index: number) => {
         return (
           <tr key={index}>
