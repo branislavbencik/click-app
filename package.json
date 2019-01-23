@@ -2,7 +2,12 @@
   "name": "click-app",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "6.5.0",
+    "node": "11.3.0"
+  },
   "dependencies": {
+    "@types/express": "^4.16.1",
     "@types/jest": "23.3.12",
     "@types/node": "10.12.18",
     "@types/react": "16.7.19",
@@ -11,6 +16,10 @@
     "@types/react-router-dom": "^4.3.1",
     "@types/redux-logger": "^3.0.6",
     "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "express-favicon": "^2.0.1",
+    "nodemon": "^1.18.9",
+    "path": "^0.12.7",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",

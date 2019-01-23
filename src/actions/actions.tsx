@@ -36,7 +36,7 @@ export const fetchTeams = () => {
     return axios
       .get("http://klikuj.herokuapp.com/api/v1/leaderboard")
       .then(res => {
-        dispatch(setTeamsDetails(res.data), console.log(res.data));
+        dispatch(setTeamsDetails(res.data));
       });
   };
 };

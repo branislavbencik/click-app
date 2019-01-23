@@ -5,9 +5,22 @@ html {
 .HeadingText,
 .ClickButton,
 .PlayButton,
-.Table {
+.Table,
+.ClicksNumber,
+.ClickingForTeamText {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
+}
+
+.InviteFriends,
+.ClicksText,
+.TableFooter,
+.Footer,
+.QuoteText,
+.QuoteAuthor,
+.NameLabel {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
 }
 
 .HeadingText,
@@ -21,7 +34,6 @@ html {
   width: 60%;
   padding: 40px;
   font-size: 25px;
-  font-family: "Times New Roman", serif;
   font-weight: 300;
   font-style: italic;
 }
@@ -33,7 +45,7 @@ html {
 
 .QuoteAuthor {
   text-align: right;
-  padding-right: 120px;
+  padding-right: 180px;
 }
 
 .HeadingText {
@@ -41,6 +53,29 @@ html {
   font-size: 25px;
   text-align: center;
   padding: 10px;
+}
+
+.KlikHeading {
+  text-align: center;
+  padding: 30px;
+}
+
+.ClickingForTeamText {
+  text-align: center;
+  font-size: 50px;
+  padding: 30px;
+}
+
+.InviteFriends {
+  margin-top: 30px;
+}
+
+.InviteFriendsLink {
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 8px 20px;
+  margin-left: 10px;
+  background-color: white;
 }
 
 .MainContainer {
@@ -58,7 +93,7 @@ input {
 }
 
 .FormWrapper {
-  padding: 20px 0px 40px 0px;
+  padding: 20px 0px 60px 0px;
   font-size: 20px;
   display: flex;
   justify-content: space-around;
@@ -76,6 +111,7 @@ input {
   border-radius: 10px;
   border: solid 0.5px grey;
   font-size: 15px;
+  outline: none;
 }
 
 ::placeholder {
@@ -87,6 +123,7 @@ input {
   color: white;
   font-size: 40px;
   border-radius: 10px;
+  outline: none;
 }
 
 .PlayButton {
@@ -106,8 +143,22 @@ input {
   width: 100%;
   text-align: left;
   border: none;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 50px;
+}
+
+.FirstColumn {
+  text-align: center;
+  padding: 0 10px 0 10px;
+}
+
+.ThirdColumn {
+  text-align: right;
+  padding-right: 20px;
+}
+
+thead {
+  font-size: 12px;
 }
 
 tr:nth-child(even) {
@@ -125,8 +176,6 @@ thead th {
 
 .TableFooter,
 .Footer {
-  font-size: 18px;
-  font-style: italic;
   text-align: center;
 }
 
@@ -136,4 +185,27 @@ thead th {
 
 .Footer {
   padding: 50px 0px 20px 0px;
+}
+
+.ClicksWrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ClicksTextBox {
+  padding: 30px;
+  text-align: center;
+}
+
+.ClicksNumber {
+  font-size: 50px;
+  color: #4990e2;
+  padding: 10px 0px;
+  letter-spacing: 2px;
+}
+
+.Top10ClickersImg {
+  width: 50%;
+  display: block;
+  margin: auto;
 }

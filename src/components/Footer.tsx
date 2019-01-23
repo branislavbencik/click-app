@@ -3,7 +3,7 @@ import React from "react";
 export const TableFooter = () => {
   return (
     <div className="TableFooter">
-      <p>Want to be top? STFU and click</p>
+      <p>Want to be top? STFU and click!</p>
     </div>
   );
 };

@@ -9,9 +9,9 @@ class Table extends Component<any, any> {
       .map((teamObject: ITeam, index: number) => {
         return (
           <tr key={index}>
-            <td>{teamObject.order}</td>
+            <td className="FirstColumn">{teamObject.order}</td>
             <td>{teamObject.team}</td>
-            <td>{teamObject.clicks}</td>
+            <td className="ThirdColumn">{teamObject.clicks}</td>
           </tr>
         );
       });
@@ -22,10 +22,10 @@ class Table extends Component<any, any> {
       <div>
         <table cellSpacing="0" cellPadding="0" className="Table">
           <thead>
-            <tr>
-              <th />
-              <th>Team</th>
-              <th>Clicks</th>
+            <tr className="TableHeading">
+              <th className="FirstColumn" />
+              <th>TEAM</th>
+              <th className="ThirdColumn">CLICKS</th>
             </tr>
           </thead>
           <tbody>{this.renderTable()}</tbody>
