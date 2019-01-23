@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actionCreators from "../actions/actions";
 
-class Table extends Component<any, any> {
+class Table extends Component<any, {}> {
   public renderTable = (): JSX.Element[] => {
     return this.props.teams
       .slice(0, 10)

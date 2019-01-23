@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import React, { Component } from "react";
 
 class Clicks extends Component<any, {}> {
-  private updateTeamClicks = (teams: any, sessions: any, team_clicks: any) => {
+  private updateTeamClicks = (teams: any, sessions: any, team_clicks: {}) => {
     if (team_clicks) {
       return team_clicks;
     }
@@ -36,12 +36,6 @@ class Clicks extends Component<any, {}> {
       </div>
     );
   }
-}
-
-interface ITeam {
-  order: number;
-  team: string;
-  clicks: number;
 }
 
 const mapStateToProps = (state: any) => {

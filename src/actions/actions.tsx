@@ -7,14 +7,14 @@ export const addTeam = (team: string) => {
   };
 };
 
-export const addSession = (session: any) => {
+export const addSession = (session: {}) => {
   return {
     type: "ADD_SESSION",
     session
   };
 };
 
-export const setTeamsDetails = (teams: any) => {
+export const setTeamsDetails = (teams: {}) => {
   return {
     type: "GET_TEAMS",
     teams

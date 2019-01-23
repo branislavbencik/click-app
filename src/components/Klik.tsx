@@ -7,11 +7,11 @@ import * as actionCreators from "../actions/actions";
 import { connect } from "react-redux";
 import Clicks from "./Clicks";
 
-class Klik extends Component<any, any> {
+class Klik extends Component<any, {}> {
   public handleClick = () => {
-    let currentTeam = this.props.sessions[this.props.sessions.length - 1].team;
-    let currentSession = this.props.sessions[this.props.sessions.length - 1]
-      .session;
+    let session = this.props.sessions[this.props.sessions.length - 1];
+    let currentTeam = session.team;
+    let currentSession = session.session;
     this.props.recordClick(currentTeam, currentSession);
     this.props.fetchTeams();
   };
