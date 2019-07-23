@@ -3,19 +3,16 @@ import { connect } from "react-redux";
 import * as actionCreators from "../actions/actions";
 
 class Table extends Component<any, {}> {
-  public renderTable = (): JSX.Element[] => {
-    return this.props.teams
-      .slice(0, 10)
-      .map((teamObject: ITeam, index: number) => {
-        return (
-          <tr key={index}>
-            <td className="FirstColumn">{teamObject.order}</td>
-            <td>{teamObject.team}</td>
-            <td className="ThirdColumn">{teamObject.clicks}</td>
-          </tr>
-        );
-      });
-  };
+  renderTable = () =>
+    this.props.teams.slice(0, 10).map((teamObject: ITeam, index: number) => {
+      return (
+        <tr key={index}>
+          <td className="FirstColumn">{teamObject.order}</td>
+          <td>{teamObject.team}</td>
+          <td className="ThirdColumn">{teamObject.clicks}</td>
+        </tr>
+      );
+    });
 
   render() {
     return (

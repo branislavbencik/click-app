@@ -11,7 +11,7 @@ class Clicks extends Component<any, {}> {
       return team.team == currentTeam;
     });
 
-    if (currentTeamInfo.clicks !== null) {
+    if (currentTeamInfo.clicks !== null || undefined) {
       return currentTeamInfo.clicks;
     }
     return 0;

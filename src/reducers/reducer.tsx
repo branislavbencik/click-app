@@ -1,3 +1,6 @@
+import { ActionTypes } from "../actionTypes/actionTypes";
+import { StoreState } from "../models/store";
+
 const initState = {
   teams: [
     {
@@ -16,49 +19,41 @@ const initState = {
   team_clicks: undefined
 };
 
-export const reducer = (state = initState, action: any) => {
-  if (action.type === "ADD_TEAM") {
-    return {
-      teams: [
-        ...state.teams,
-        {
-          order: null,
-          team: action.team,
-          clicks: null
-        }
-      ],
-      sessions: [...state.sessions],
-      your_clicks: state.your_clicks,
-      team_clicks: state.team_clicks
-    };
-  }
+export const reducer = (
+  state: StoreState = initState,
+  action: any
+) => {
+  switch (action.type) {
+    case ActionTypes.ADD_TEAM:
+      return {
+        ...state,
+        teams: [
+          ...state.teams,
+          {
+            order: null,
+            team: action.team,
+            clicks: null
+          }
+        ]
+      };
+    case ActionTypes.ADD_SESSION:
+      return {
+        ...state,
+        sessions: [...state.sessions, action.session]
+      };
 
-  if (action.type == "ADD_SESSION") {
-    return {
-      teams: [...state.teams],
-      sessions: [...state.sessions, action.session],
-      your_clicks: state.your_clicks,
-      team_clicks: state.team_clicks
-    };
+    case ActionTypes.GET_TEAMS:
+      return {
+        ...state,
+        teams: action.teams
+      };
+    case ActionTypes.POST_TEAM:
+      return {
+        ...state,
+        your_clicks: action.clicks.your_clicks,
+        team_clicks: action.clicks.team_clicks
+      };
+    default:
+      return state;
   }
-
-  if (action.type === "GET_TEAMS") {
-    return {
-      teams: action.teams,
-      sessions: [...state.sessions],
-      your_clicks: state.your_clicks,
-      team_clicks: state.team_clicks
-    };
-  }
-
-  if (action.type == "POST_TEAM") {
-    return {
-      teams: [...state.teams],
-      sessions: [...state.sessions],
-      your_clicks: action.clicks.your_clicks,
-      team_clicks: action.clicks.team_clicks
-    };
-  }
-
-  return state;
 };

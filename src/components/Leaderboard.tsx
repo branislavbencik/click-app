@@ -6,11 +6,29 @@ import { connect } from "react-redux";
 import * as actionCreators from "../actions/actions";
 import { TableFooter, Footer } from "./Footer";
 
-class Leaderboard extends Component<any, {}> {
-  public handleSubmit = (e: any): void => {
+interface LeaderboardState {
+  team: string;
+  session: string;
+  [index: string]: string;
+}
+
+class Leaderboard extends Component<any, LeaderboardState> {
+  constructor(props: any) {
+    super(props);
+
+    this.state = {
+      team: "",
+      session: Math.random().toString(36)
+    };
+  }
+
+  handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    let team: string = e.target[0].value;
-    let session: string = Math.random().toString(36);
+    const { team, session } = this.state;
     this.props.addSession({ team, session });
     this.props.addTeam(team);
     this.props.history.push("/" + team);
@@ -29,7 +47,12 @@ class Leaderboard extends Component<any, {}> {
           <form className="FormWrapper" onSubmit={this.handleSubmit}>
             <span className="LabelInputWrapper">
               <label className="NameLabel">Enter your team name:</label>
-              <input type="text" placeholder="Your mom" />
+              <input
+                type="text"
+                placeholder="Your mom"
+                name="team"
+                onChange={this.handleChange}
+              />
             </span>
             <button className="PlayButton" type="submit">
               Click!
