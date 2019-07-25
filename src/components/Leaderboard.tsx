@@ -29,16 +29,17 @@ class Leaderboard extends Component<any, LeaderboardState> {
   handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     const { team, session } = this.state;
-    this.props.addSession({ team, session });
-    this.props.addTeam(team);
-    this.props.history.push("/" + team);
+    const { addSession, addTeam, history } = this.props;
+    addSession({ team, session });
+    addTeam(team);
+    history.push("/" + team);
   };
 
   componentDidMount() {
     this.props.fetchTeams();
   }
 
-  public render(): JSX.Element {
+  render() {
     return (
       <div className="LeaderBoard">
         <Heading />

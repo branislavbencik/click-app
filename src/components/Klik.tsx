@@ -8,12 +8,14 @@ import { connect } from "react-redux";
 import Clicks from "./Clicks";
 
 class Klik extends Component<any, {}> {
-  public handleClick = () => {
-    let session = this.props.sessions[this.props.sessions.length - 1];
-    let currentTeam = session.team;
-    let currentSession = session.session;
-    this.props.recordClick(currentTeam, currentSession);
-    this.props.fetchTeams();
+  handleClick = () => {
+    const { sessions, recordClick, fetchTeams } = this.props;
+
+    const session = sessions[sessions.length - 1];
+    const currentTeam = session.team;
+    const currentSession = session.session;
+    recordClick(currentTeam, currentSession);
+    fetchTeams();
   };
 
   render() {

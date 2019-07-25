@@ -6,8 +6,8 @@ class Clicks extends Component<any, {}> {
     if (team_clicks) {
       return team_clicks;
     }
-    let currentTeam = sessions[sessions.length - 1].team;
-    let currentTeamInfo = teams.find((team: any) => {
+    const currentTeam = sessions[sessions.length - 1].team;
+    const currentTeamInfo = teams.find((team: any) => {
       return team.team == currentTeam;
     });
 

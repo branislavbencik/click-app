@@ -5,13 +5,18 @@ export interface StoreState {
   team_clicks: number | undefined;
 }
 
-interface Team {
+export interface Clicks {
+  your_clicks: number | undefined;
+  team_clicks: number | undefined;
+}
+
+export interface Team {
   order: number | undefined;
   team: string;
   clicks: number | undefined;
 }
 
-interface Session {
+export interface Session {
   team: string;
   string: string;
 }
